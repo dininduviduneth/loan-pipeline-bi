@@ -39,7 +39,8 @@ database_cursor.execute("""
             amortization_length INT,
             applied_loan_amount DECIMAL(10,2),
             highest_approved_amount DECIMAL(10,2),
-            paid_out_loan_amount DECIMAL(10,2)
+            paid_out_loan_amount DECIMAL(10,2),
+            FOREIGN KEY (application_id) REFERENCES staging_responses(application_id)
         )
 """)
 
@@ -58,8 +59,31 @@ database_cursor.execute("""
         offered_amount DECIMAL(10,2),
         rank_interest_rate INT,
         rank_offered_amount INT,
-        response_id INT AUTO_INCREMENT PRIMARY KEY
+        response_id INT AUTO_INCREMENT PRIMARY KEY,
+        FOREIGN KEY (application_id) REFERENCES staging_applications(application_id)
     )
+""")
+
+# CREATING THE DATE DIMENSION TABLE
+database_cursor.execute("""
+    CREATE TABLE IF NOT EXISTS DimDate (
+        Date         DATE,
+        Day          INT,
+        DayName      VARCHAR(20),
+        Week         INT,
+        ISOWeek      INT,
+        DayOfWeek    INT,
+        Month        INT,
+        MonthName    VARCHAR(20),
+        Quarter      INT,
+        Year         INT,
+        FirstOfMonth DATE,
+        LastOfYear   DATE,
+        DayOfYear    INT,
+        PRIMARY KEY (Date)
+        -- FOREIGN KEY (Date) REFERENCES staging_applications(application_creation_date),
+        -- FOREIGN KEY (Date) REFERENCES staging_responses(response_creation_date)
+    );
 """)
 
 # Close the cursor and connection
