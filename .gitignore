@@ -2,6 +2,7 @@ data
 database
 notebooks
 .DS_Store
+.~odnel*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
