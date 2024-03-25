@@ -1737,6 +1737,18 @@
       <column caption='Avg Applications per Day' datatype='real' name='[Calculation_3186648648654929923]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='COUNTD([application_id]) / COUNTD([application_creation_date])' />
       </column>
+      <column caption='LT - [Application - Response]' datatype='real' name='[Calculation_4210513808186654720]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='AVG([lt_apre])' />
+      </column>
+      <column caption='LT - [Response - Acceptance]' datatype='real' name='[Calculation_4210513808187219969]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='AVG([lt_reac])' />
+      </column>
+      <column caption='LT - [Acceptance - Payment]' datatype='real' name='[Calculation_4210513808187359234]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='AVG([lt_acpa])' />
+      </column>
+      <column caption='Total TL [Application - Payment]' datatype='real' name='[Calculation_4210513808187633667]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Calculation_4210513808187359234]+[Calculation_4210513808187219969]+[Calculation_4210513808187219969]' />
+      </column>
       <column caption='Count of Applications' datatype='integer' name='[Calculation_5397212377396555780]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='COUNTD([application_id])' />
       </column>
@@ -1814,10 +1826,6 @@
       <column caption='Highest Approved Amount' datatype='real' name='[highest_approved_amount]' role='measure' type='quantitative' />
       <column caption='Interest Rate Effective (Application Chain)' datatype='real' name='[interest_rate_effective (application_chain)]' role='measure' type='quantitative' />
       <column caption='Interest Rate Effective' datatype='real' name='[interest_rate_effective]' role='measure' type='quantitative' />
-      <column caption='Lt Acpa' datatype='integer' name='[lt_acpa]' role='measure' type='quantitative' />
-      <column caption='Lt Acwi' datatype='integer' name='[lt_acwi]' role='measure' type='quantitative' />
-      <column caption='Lt Apre' datatype='integer' name='[lt_apre]' role='measure' type='quantitative' />
-      <column caption='Lt Reac' datatype='integer' name='[lt_reac]' role='measure' type='quantitative' />
       <column caption='Missing Response' datatype='integer' name='[missing_response]' role='measure' type='quantitative' />
       <column caption='Offered Amount (Application Chain)' datatype='real' name='[offered_amount (application_chain)]' role='measure' type='quantitative' />
       <column caption='Offered Amount' datatype='real' name='[offered_amount]' role='measure' type='quantitative' />
@@ -1851,6 +1859,9 @@
       <column-instance column='[has_co_applicant]' derivation='None' name='[none:has_co_applicant:nk]' pivot='key' type='nominal' />
       <column-instance column='[refinance]' derivation='None' name='[none:refinance:nk]' pivot='key' type='nominal' />
       <column-instance column='[response_type]' derivation='None' name='[none:response_type:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Calculation_4210513808186654720]' derivation='User' name='[usr:Calculation_4210513808186654720:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_4210513808187219969]' derivation='User' name='[usr:Calculation_4210513808187219969:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_4210513808187359234]' derivation='User' name='[usr:Calculation_4210513808187359234:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Calculation_5397212377396555780]' derivation='User' name='[usr:Calculation_5397212377396555780:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Calculation_5397212377555931148]' derivation='User' name='[usr:Calculation_5397212377555931148:qk]' pivot='key' type='quantitative' />
       <group caption='Action (Bank Name)' hidden='true' name='[Action (Bank Name)]' name-style='unqualified' user:auto-column='sheet_link'>
@@ -1885,23 +1896,6 @@
             </map>
             <map to='#f28e2b'>
               <bucket>&quot;expired&quot;</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[:Measure Names]' type='palette'>
-            <map to='#4e79a7'>
-              <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi].[usr:Calculation_5397212377555931148:qk]&quot;</bucket>
-            </map>
-            <map to='#e15759'>
-              <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi].[usr:Calculation_3127749941248712716:qk]&quot;</bucket>
-            </map>
-            <map to='#e15759'>
-              <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi].[usr:Calculation_3127749941248753677:qk]&quot;</bucket>
-            </map>
-            <map to='#e15759'>
-              <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi].[usr:Calculation_5397212377396555780:qk]&quot;</bucket>
-            </map>
-            <map to='#f28e2b'>
-              <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi]&quot;</bucket>
             </map>
           </encoding>
           <encoding attr='color' field='[none:response_type:nk]' type='palette'>
@@ -1957,6 +1951,32 @@
             </map>
             <map to='#ffffff'>
               <bucket>&quot;1&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi].[usr:Calculation_5397212377555931148:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi].[usr:Calculation_4210513808186654720:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi].[usr:Calculation_4210513808187359234:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi].[usr:Calculation_3127749941248712716:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi].[usr:Calculation_3127749941248753677:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi].[usr:Calculation_5397212377396555780:qk]&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi].[usr:Calculation_4210513808187219969:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi]&quot;</bucket>
             </map>
           </encoding>
         </style-rule>
@@ -4735,26 +4755,6 @@
       </table>
       <simple-id uuid='{B36FDBCC-F8AB-42D8-AC0B-72DC99C2D723}' />
     </worksheet>
-    <worksheet name='[DB05A01]'>
-      <table>
-        <view>
-          <datasources />
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-          </pane>
-        </panes>
-        <rows />
-        <cols />
-      </table>
-      <simple-id uuid='{6A0098C3-70CB-45A7-8C65-8259D9A89B77}' />
-    </worksheet>
   </worksheets>
   <dashboards>
     <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='DB01'>
@@ -4790,7 +4790,7 @@
                       </zone-style>
                     </zone>
                     <zone h='10675' id='23' name='[DB01A01]' show-title='false' w='22754' x='781' y='12762'>
-                      <layout-cache cell-count-w='1' type-h='fixed' type-w='cell' />
+                      <layout-cache cell-count-w='1' fixed-size-h='74' type-h='fixed' type-w='cell' />
                       <zone-style>
                         <format attr='border-color' value='#000000' />
                         <format attr='border-style' value='none' />
@@ -4961,8 +4961,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='2450' minheight='2450' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='186' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97916' id='185' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
+            <zone h='100000' id='190' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97916' id='189' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
                 <zone h='5860' id='7' type-v2='text' w='98438' x='781' y='1042'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='20'>Business Funnel Stats</run>
@@ -5024,7 +5024,7 @@
                   </zone-style>
                 </zone>
                 <zone fixed-size='74' h='10675' id='23' is-fixed='true' name='[DB01A01]' show-title='false' w='22754' x='781' y='12762'>
-                  <layout-cache cell-count-w='1' type-h='fixed' type-w='cell' />
+                  <layout-cache cell-count-w='1' fixed-size-h='74' type-h='fixed' type-w='cell' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -5263,7 +5263,7 @@
                   </zone-style>
                 </zone>
                 <zone h='27213' id='40' name='[DB02A07]' show-title='false' w='49219' x='50000' y='71745'>
-                  <layout-cache cell-count-h='6' minwidth='260' non-cell-size-h='75' type-h='cell' type-w='scalable' />
+                  <layout-cache minwidth='260' type-h='cell' type-w='scalable' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='dotted' />
@@ -5286,8 +5286,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1950' minheight='1950' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='145' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97916' id='144' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
+            <zone h='100000' id='149' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97916' id='148' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
                 <zone h='5860' id='9' type-v2='text' w='98438' x='781' y='1042'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='20'>APPLICATION STAGE</run>
@@ -5381,7 +5381,7 @@
                   </zone-style>
                 </zone>
                 <zone fixed-size='197' h='27213' id='40' is-fixed='true' name='[DB02A07]' show-title='false' w='49219' x='50000' y='71745'>
-                  <layout-cache cell-count-h='6' minwidth='260' non-cell-size-h='75' type-h='cell' type-w='scalable' />
+                  <layout-cache minwidth='260' type-h='cell' type-w='scalable' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='dotted' />
@@ -5523,8 +5523,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1600' minheight='1600' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='129' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97916' id='128' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
+            <zone h='100000' id='133' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97916' id='132' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
                 <zone forceUpdate='true' h='6662' id='5' type-v2='text' w='100000' x='0' y='0'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='20'>RESPONSE STAGE</run>
@@ -5764,8 +5764,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1600' minheight='1600' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='105' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97916' id='104' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
+            <zone h='100000' id='109' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97916' id='108' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
                 <zone h='6625' id='7' type-v2='text' w='100000' x='0' y='0'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='20'>ACCEPTANCE STAGE</run>
@@ -5921,8 +5921,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='21' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97916' id='20' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
+            <zone h='100000' id='25' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97916' id='24' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
                 <zone h='6510' id='5' type-v2='text' w='98438' x='781' y='1042'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='20'>PAYMENT STAGE</run>
@@ -5948,9 +5948,31 @@
       </devicelayouts>
       <simple-id uuid='{39FACB66-37A6-4F63-A020-84404BCCC6EE}' />
     </dashboard>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='DB06'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones />
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='6' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='5' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000' />
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{30C3529D-5BC8-4873-82F4-38C8B82083DB}' />
+    </dashboard>
   </dashboards>
   <windows source-height='30'>
-    <window class='dashboard' maximized='true' name='DB01'>
+    <window class='dashboard' name='DB01'>
       <viewpoints>
         <viewpoint name='[DB01A01]'>
           <zoom type='fit-width' />
@@ -6108,28 +6130,10 @@
       <active id='-1' />
       <simple-id uuid='{E8079701-20FA-412F-8E9A-AF484B699999}' />
     </window>
-    <window class='worksheet' name='[DB05A01]'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{14DE4390-B95F-4466-ACC8-919D05484828}' />
+    <window class='dashboard' maximized='true' name='DB06'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{445C6C6D-DFDF-45E8-BC42-75EECB69D1B5}' />
     </window>
     <window class='worksheet' hidden='true' name='[DB01A01]'>
       <cards>
@@ -10239,7 +10243,7 @@
       pAQAICkBAEhKAACSEgCApAQAICkBAEhKAACSEgCApAQAICkBAEhKAACSEgCApAQAIKmKoiiK
       f3oSAPz9nAEAJCUAAEkJAEBSAgCQlAAAJPU/8ziEjsBbwasAAAAASUVORK5CYII=
     </thumbnail>
-    <thumbnail height='384' name='[DB05A01]' width='384'>
+    <thumbnail height='384' name='DB06' width='384'>
       iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAYAAACkx7W/AAAACXBIWXMAAA7DAAAOwwHHb6hk
       AAAFXUlEQVR4nO3VMQEAIAzAMMC/5yFjRxMF/XpnZg4AOW87AIAdBgAQZQAAUQYAEGUAAFEG
       ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
