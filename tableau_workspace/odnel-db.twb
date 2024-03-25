@@ -1976,59 +1976,12 @@
               <bucket>&quot;expired&quot;</bucket>
             </map>
           </encoding>
-          <encoding attr='color' field='[none:response_type:nk]' type='palette'>
-            <map to='#000000'>
-              <bucket>&quot;loan_offer&quot;</bucket>
-            </map>
-            <map to='#cccccc'>
-              <bucket>&quot;denial&quot;</bucket>
-            </map>
-            <map to='#e15759'>
-              <bucket>&quot;no_response&quot;</bucket>
-            </map>
-          </encoding>
           <encoding attr='color' field='[none:accepted_by_customer:ok]' type='palette'>
             <map to='#000000'>
               <bucket>1</bucket>
             </map>
             <map to='#d6d6d6'>
               <bucket>0</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[none:accepted_loan_purpose:nk]' palette='gray_10_0' type='palette'>
-            <map to='#000000'>
-              <bucket>&quot;Loan Collect&quot;</bucket>
-            </map>
-            <map to='#333333'>
-              <bucket>&quot;Other&quot;</bucket>
-            </map>
-            <map to='#666666'>
-              <bucket>&quot;Home Improvement&quot;</bucket>
-            </map>
-            <map to='#999999'>
-              <bucket>&quot;Vehicle&quot;</bucket>
-            </map>
-            <map to='#cccccc'>
-              <bucket>&quot;Health Vacation&quot;</bucket>
-            </map>
-            <map to='#ffffff'>
-              <bucket>&quot;Studies&quot;</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[none:has_co_applicant:nk]' type='palette'>
-            <map to='#000000'>
-              <bucket>&quot;0&quot;</bucket>
-            </map>
-            <map to='#ffffff'>
-              <bucket>&quot;1&quot;</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[none:refinance:nk]' type='palette'>
-            <map to='#000000'>
-              <bucket>&quot;0&quot;</bucket>
-            </map>
-            <map to='#ffffff'>
-              <bucket>&quot;1&quot;</bucket>
             </map>
           </encoding>
           <encoding attr='color' field='[:Measure Names]' type='palette'>
@@ -2055,23 +2008,6 @@
             </map>
             <map to='#f28e2b'>
               <bucket>&quot;[federated.13cw7jf06amnaw1gonm6502gvroi]&quot;</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[none:metric:nk]' type='palette'>
-            <map to='#4e79a7'>
-              <bucket>&quot;1 - Application to Response&quot;</bucket>
-            </map>
-            <map to='#59a14f'>
-              <bucket>&quot;Total Avg Lead Time&quot;</bucket>
-            </map>
-            <map to='#76b7b2'>
-              <bucket>&quot;4 - Acceptance to Withdrawal&quot;</bucket>
-            </map>
-            <map to='#e15759'>
-              <bucket>&quot;3 - Acceptance to Payment&quot;</bucket>
-            </map>
-            <map to='#f28e2b'>
-              <bucket>&quot;2 - Response to Acceptance&quot;</bucket>
             </map>
           </encoding>
           <encoding attr='color' field='[none:bank_name (application_chain):nk]' type='palette'>
@@ -2182,6 +2118,70 @@
             </map>
             <map to='#ffbe7d'>
               <bucket>&quot;Pinnacle Bank&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:response_type:nk]' type='palette'>
+            <map to='#000000'>
+              <bucket>&quot;loan_offer&quot;</bucket>
+            </map>
+            <map to='#cccccc'>
+              <bucket>&quot;denial&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;no_response&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:accepted_loan_purpose:nk]' palette='gray_10_0' type='palette'>
+            <map to='#000000'>
+              <bucket>&quot;Loan Collect&quot;</bucket>
+            </map>
+            <map to='#333333'>
+              <bucket>&quot;Other&quot;</bucket>
+            </map>
+            <map to='#666666'>
+              <bucket>&quot;Home Improvement&quot;</bucket>
+            </map>
+            <map to='#999999'>
+              <bucket>&quot;Vehicle&quot;</bucket>
+            </map>
+            <map to='#cccccc'>
+              <bucket>&quot;Health Vacation&quot;</bucket>
+            </map>
+            <map to='#ffffff'>
+              <bucket>&quot;Studies&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:has_co_applicant:nk]' type='palette'>
+            <map to='#000000'>
+              <bucket>&quot;0&quot;</bucket>
+            </map>
+            <map to='#ffffff'>
+              <bucket>&quot;1&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:refinance:nk]' type='palette'>
+            <map to='#000000'>
+              <bucket>&quot;0&quot;</bucket>
+            </map>
+            <map to='#ffffff'>
+              <bucket>&quot;1&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:metric:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;1 - Application to Response&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Total Avg Lead Time&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;4 - Acceptance to Withdrawal&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;3 - Acceptance to Payment&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;2 - Response to Acceptance&quot;</bucket>
             </map>
           </encoding>
         </style-rule>
@@ -5968,7 +5968,7 @@
                       </zone-style>
                     </zone>
                     <zone h='10677' id='39' name='[DB01B01]' show-title='false' w='24999' x='23535' y='12762'>
-                      <layout-cache fixed-size-h='74' type-h='fixed' type-w='cell' />
+                      <layout-cache cell-count-w='1' fixed-size-h='74' type-h='fixed' type-w='cell' />
                       <zone-style>
                         <format attr='border-color' value='#000000' />
                         <format attr='border-style' value='none' />
@@ -5977,7 +5977,7 @@
                       </zone-style>
                     </zone>
                     <zone fixed-size='110' h='15365' id='42' is-fixed='true' name='[DB01B02]' show-title='false' w='24999' x='23535' y='23439'>
-                      <layout-cache type-h='fixed' type-w='cell' />
+                      <layout-cache cell-count-w='1' non-cell-size-w='132' type-h='fixed' type-w='cell' />
                       <zone-style>
                         <format attr='border-color' value='#000000' />
                         <format attr='border-style' value='dashed' />
@@ -5986,7 +5986,7 @@
                       </zone-style>
                     </zone>
                     <zone h='50780' id='43' name='[DB01B03]' show-title='false' w='24999' x='23535' y='38804'>
-                      <layout-cache minheight='121' type-h='scalable' type-w='cell' />
+                      <layout-cache cell-count-w='3' minheight='121' type-h='scalable' type-w='cell' />
                       <zone-style>
                         <format attr='border-color' value='#000000' />
                         <format attr='border-style' value='dashed' />
@@ -6099,8 +6099,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='2450' minheight='2450' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='216' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97916' id='215' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
+            <zone h='100000' id='222' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97916' id='221' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
                 <zone h='5860' id='7' type-v2='text' w='98438' x='781' y='1042'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='20'>Business Funnel Stats</run>
@@ -6172,7 +6172,7 @@
                   </zone-style>
                 </zone>
                 <zone fixed-size='74' h='10677' id='39' is-fixed='true' name='[DB01B01]' show-title='false' w='24999' x='23535' y='12762'>
-                  <layout-cache fixed-size-h='74' type-h='fixed' type-w='cell' />
+                  <layout-cache cell-count-w='1' fixed-size-h='74' type-h='fixed' type-w='cell' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -6212,7 +6212,7 @@
                   </zone-style>
                 </zone>
                 <zone fixed-size='108' h='15365' id='42' is-fixed='true' name='[DB01B02]' show-title='false' w='24999' x='23535' y='23439'>
-                  <layout-cache type-h='fixed' type-w='cell' />
+                  <layout-cache cell-count-w='1' non-cell-size-w='132' type-h='fixed' type-w='cell' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='dashed' />
@@ -6252,7 +6252,7 @@
                   </zone-style>
                 </zone>
                 <zone fixed-size='280' h='50780' id='43' is-fixed='true' name='[DB01B03]' show-title='false' w='24999' x='23535' y='38804'>
-                  <layout-cache minheight='121' type-h='scalable' type-w='cell' />
+                  <layout-cache cell-count-w='3' minheight='121' type-h='scalable' type-w='cell' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='dashed' />
@@ -6401,7 +6401,7 @@
                   </zone-style>
                 </zone>
                 <zone h='27213' id='40' name='[DB02A07]' show-title='false' w='49219' x='50000' y='71745'>
-                  <layout-cache minwidth='260' type-h='cell' type-w='scalable' />
+                  <layout-cache cell-count-h='6' minwidth='260' non-cell-size-h='75' type-h='cell' type-w='scalable' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='dotted' />
@@ -6424,8 +6424,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1950' minheight='1950' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='175' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97916' id='174' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
+            <zone h='100000' id='181' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97916' id='180' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
                 <zone h='5860' id='9' type-v2='text' w='98438' x='781' y='1042'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='20'>APPLICATION STAGE</run>
@@ -6519,7 +6519,7 @@
                   </zone-style>
                 </zone>
                 <zone fixed-size='197' h='27213' id='40' is-fixed='true' name='[DB02A07]' show-title='false' w='49219' x='50000' y='71745'>
-                  <layout-cache minwidth='260' type-h='cell' type-w='scalable' />
+                  <layout-cache cell-count-h='6' minwidth='260' non-cell-size-h='75' type-h='cell' type-w='scalable' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='dotted' />
@@ -6661,8 +6661,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1600' minheight='1600' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='159' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97916' id='158' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
+            <zone h='100000' id='165' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97916' id='164' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
                 <zone forceUpdate='true' h='6662' id='5' type-v2='text' w='100000' x='0' y='0'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='20'>RESPONSE STAGE</run>
@@ -6902,8 +6902,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1600' minheight='1600' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='135' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97916' id='134' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
+            <zone h='100000' id='141' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97916' id='140' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
                 <zone h='6625' id='7' type-v2='text' w='100000' x='0' y='0'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='20'>ACCEPTANCE STAGE</run>
@@ -7059,8 +7059,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='51' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97916' id='50' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
+            <zone h='100000' id='57' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97916' id='56' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
                 <zone h='6510' id='5' type-v2='text' w='98438' x='781' y='1042'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='20'>PAYMENT STAGE</run>
@@ -7252,8 +7252,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1800' minheight='1800' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='30' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97916' id='29' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
+            <zone h='100000' id='36' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97916' id='35' param='vert' type-v2='layout-flow' w='98438' x='781' y='1042'>
                 <zone h='6119' id='3' type-v2='text' w='98438' x='781' y='1042'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='20'>BANK PARTNER CLASSIFICATION</run>
@@ -7403,8 +7403,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='25' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='24' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='31' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='30' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
                 <zone h='5250' id='3' type-v2='text' w='82400' x='800' y='1000'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='20'>BANK PARTNER SEGMENTS</run>
@@ -7459,7 +7459,7 @@
     </dashboard>
   </dashboards>
   <windows source-height='30'>
-    <window class='dashboard' maximized='true' name='DB01'>
+    <window class='dashboard' name='DB01'>
       <viewpoints>
         <viewpoint name='[DB01A01]'>
           <zoom type='fit-width' />
@@ -7622,7 +7622,7 @@
       <active id='-1' />
       <simple-id uuid='{445C6C6D-DFDF-45E8-BC42-75EECB69D1B5}' />
     </window>
-    <window class='dashboard' name='DB07'>
+    <window class='dashboard' maximized='true' name='DB07'>
       <viewpoints>
         <viewpoint name='[DB06A07]'>
           <zoom type='entire-view' />
