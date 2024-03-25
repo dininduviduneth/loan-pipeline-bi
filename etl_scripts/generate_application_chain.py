@@ -124,6 +124,63 @@ else:
     print("Query did not return any rows.")
 
 database_connection.commit()
+
+# Drop the existing application_chain table
+database_cursor.execute(
+    """
+    DROP TABLE IF EXISTS bank_lead_times;
+    """
+)
+
+database_cursor.execute(
+    """
+    -- Create the bank_lead_times table
+    CREATE TABLE IF NOT EXISTS bank_lead_times (
+        bank_name VARCHAR(255),
+        metric VARCHAR(255),
+        value DECIMAL(10, 2)
+    );
+    """
+)
+
+database_cursor.execute(
+    """
+    INSERT INTO bank_lead_times
+    SELECT bank_name, '1 - Application to Response' AS metric, AVG(lt_apre) AS value
+    FROM application_chain
+    WHERE lt_apre IS NOT NULL AND bank_name IS NOT NULL
+    GROUP BY bank_name
+    UNION ALL
+    SELECT bank_name, '2 - Response to Acceptance' AS metric, AVG(lt_reac) AS value
+    FROM application_chain
+    WHERE lt_reac IS NOT NULL AND bank_name IS NOT NULL
+    GROUP BY bank_name
+    UNION ALL
+    SELECT bank_name, '3 - Acceptance to Payment' AS metric, AVG(lt_acpa) AS value
+    FROM application_chain
+    WHERE lt_acpa IS NOT NULL AND bank_name IS NOT NULL
+    GROUP BY bank_name
+    UNION ALL
+    SELECT bank_name, '4 - Acceptance to Withdrawal' AS metric, AVG(lt_acwi) AS value
+    FROM application_chain
+    WHERE lt_acwi IS NOT NULL AND bank_name IS NOT NULL
+    GROUP BY bank_name
+    UNION ALL
+    SELECT bank_name, 'Total Avg Lead Time' AS metric, AVG(lt_apre) + AVG(lt_reac) + AVG(lt_acpa) AS value
+    FROM application_chain
+    WHERE lt_apre IS NOT NULL AND lt_reac IS NOT NULL AND lt_acpa IS NOT NULL AND bank_name IS NOT NULL
+    GROUP BY bank_name;
+    """
+)
+
+# Check result status
+if database_cursor.rowcount > 0:
+    print("Query executed successfully and returned {} rows.".format(database_cursor.rowcount))
+else:
+    print("Query did not return any rows.")
+
+database_connection.commit()
+
 # Close the cursor and connection
 database_cursor.close()
 database_connection.close()
