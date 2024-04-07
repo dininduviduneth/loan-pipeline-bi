@@ -1,4 +1,4 @@
-# Loan Pipeline Project
+# Loan Pipeline Project [Extract data from APIs | ETL | Warehousing | Incremental Refresh | Visualization]
 
 The work done under this project provides a ready to deploy package and ETL pipelines to setup an end-to-end data analytics solution starting from incremental data extraction from external APIs and writing the data into staging tables in MySQL and ELT procedures to generate a new set of tables as a semantic layer of business logic to provide lightweight data visualization via Tableau dashboards.
 
