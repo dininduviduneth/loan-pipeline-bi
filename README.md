@@ -4,7 +4,7 @@ The work done under this project provides a ready to deploy package and ETL pipe
 
 This documentation will provide a brief overview of how different components are set up within the project and showcase the outputs as Tableau dashboards.
 
-Documentation on Tableau dashboards: .....
+Documentation on Tableau dashboards --> [Dashboard Documentation](/tableau_workspace/README.md)
 
 ## 1. Business use case and logic
 
@@ -13,6 +13,10 @@ The project is based on a hypothetical entity called ___Mini Loans___ who acts a
 ![Business Process](images/BusinessProcess.jpg)
 
 First the process starts when a user (an applicant) submits an __application__ for a loan in the portal. The application is then shared across to multiple lending partners and the lending partners send back __responses__ to the applications. The responses could be either __loan offers__ or __denials__. The applicants who received loan offers will then evaluate their options and choose to __accept__ one of the offfers. The accepted offers will then be processed by the respective lending partners and then will be __paid out__ either in full or partially to the applicants.
+
+An glimpse of the dashboard component elaborating the above process is given below:
+
+![Business Process](images/dashboards/P01.png)
 
 ## 2. Data sources and structures
 
