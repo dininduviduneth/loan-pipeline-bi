@@ -5,7 +5,7 @@ import mysql.connector
 
 from fetch_data import fetch_data
 
-token = "49c56f5c-0726-4f27-a333-5275390caa45"
+token = "XXXX"
 etl_dates = [(datetime.datetime(2023, 1, 1) + datetime.timedelta(days=i)).strftime(f"%Y-%m-%d") for i in range(90)]
 
 database_connection = mysql.connector.connect(
